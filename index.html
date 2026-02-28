@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trichy Tea Corner | Home</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg: #f8efe6;
+        --bg-alt: #fff8f2;
+        --text: #3f2a22;
+        --muted: #6f574c;
+        --primary: #ff8a00;
+        --accent: #ff5a2a;
+        --glass: rgba(255, 255, 255, 0.55);
+        --line: rgba(255, 255, 255, 0.5);
+        --shadow: 0 16px 35px rgba(50, 20, 5, 0.16);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        color: var(--text);
+        background:
+          radial-gradient(circle at 10% 10%, #ffe2ba 0, transparent 40%),
+          radial-gradient(circle at 85% 20%, #ffd2b3 0, transparent 35%),
+          linear-gradient(135deg, var(--bg) 0%, #f5eee8 45%, #fef8f3 100%);
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 16px 4%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.76);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(12px);
+      }
+
+      .logo {
+        font-weight: 800;
+        font-size: 1.25rem;
+        color: var(--text);
+      }
+
+      .logo i {
+        color: var(--accent);
+      }
+
+      nav {
+        display: flex;
+        gap: 18px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+        position: relative;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        transition: 0.25s;
+      }
+
+      nav a:hover::after,
+      nav a.active::after {
+        width: 100%;
+      }
+
+      .hero {
+        min-height: 100vh;
+        padding-top: 110px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .glass {
+        background: var(--glass);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        backdrop-filter: blur(12px);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-content {
+        padding: 42px;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: #fff2e2;
+        color: #a04411;
+        font-size: 0.82rem;
+        font-weight: 600;
+        margin-bottom: 14px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        letter-spacing: 0.2px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 3.6rem);
+        line-height: 1.1;
+        margin-bottom: 14px;
+      }
+
+      .lead {
+        color: var(--muted);
+        margin-bottom: 22px;
+      }
+
+      .status-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 10px 0 18px;
+      }
+
+      .status-pill {
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: #fff2e2;
+        color: #a04411;
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .status-pill.accent {
+        background: #ffe7dc;
+        color: #a0381a;
+      }
+
+      .btn-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: none;
+        text-decoration: none;
+        padding: 12px 18px;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        color: #fff;
+        background: linear-gradient(120deg, var(--primary), var(--accent));
+        box-shadow: 0 10px 22px rgba(255, 98, 42, 0.35);
+      }
+
+      .btn-soft {
+        color: var(--text);
+        background: #fff;
+      }
+
+      .hero-image {
+        overflow: hidden;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        min-height: 460px;
+        transition: transform 0.45s;
+      }
+
+      .hero-image:hover img {
+        transform: scale(1.05);
+      }
+
+      section {
+        padding: 82px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: clamp(1.7rem, 4vw, 2.7rem);
+        margin-bottom: 14px;
+      }
+
+      .section-sub {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 34px;
+        color: var(--muted);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 22px;
+      }
+
+      .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin: 12px 0 24px;
+      }
+
+      .filter-btn {
+        border: 1px solid #ffd2b8;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: #fffaf5;
+        color: var(--text);
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .filter-btn.active {
+        background: linear-gradient(120deg, var(--primary), var(--accent));
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .menu-card.hidden {
+        display: none;
+      }
+
+      .card {
+        padding: 20px;
+        border-radius: 20px;
+        background: var(--glass);
+        border: 1px solid var(--line);
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.32s,
+          box-shadow 0.32s;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 35px rgba(49, 20, 8, 0.25);
+      }
+
+      .card.active {
+        border-color: rgba(255, 98, 53, 0.45);
+        box-shadow: 0 18px 32px rgba(255, 98, 53, 0.2);
+      }
+
+      .card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        border-radius: 14px;
+        margin-bottom: 12px;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .pill {
+        font-size: 0.78rem;
+        background: #fff4ea;
+        color: #8c431a;
+        border-radius: 999px;
+        padding: 4px 10px;
+        display: inline-block;
+        margin: 8px 0 10px;
+      }
+
+      .map-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .map-panel {
+        padding: 16px;
+      }
+
+      iframe {
+        width: 100%;
+        min-height: 360px;
+        border: 0;
+        border-radius: 16px;
+      }
+
+      .map-status {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .route-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .route-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        background: #fffaf4;
+        border: 1px solid #ffe0c4;
+        padding: 12px;
+        border-radius: 12px;
+      }
+
+      footer {
+        background: #3d2921;
+        color: #ffd8b2;
+        text-align: center;
+        padding: 24px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: 0.6s;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 920px) {
+        .hero,
+        .map-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        header {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        nav {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo"><i class="fas fa-mug-hot"></i> Trichy Tea Corner</div>
+      <nav>
+        <a class="active" href="#">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#stalls">Tea Stalls</a>
+        <a href="#maphub">Map Hub</a>
+        <a href="explore.html">Explore</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="hero reveal">
+        <div class="hero-content glass">
+          <span class="tag">Updated Trichy Tea Guide</span>
+          <h1>Authentic Tea Culture with Live Location Mapping</h1>
+          <p class="lead">
+            Discover iconic tea points in Tiruchirappalli, browse signature
+            drinks, and jump directly to exact map locations with one click.
+          </p>
+          <div class="status-row">
+            <span class="status-pill" id="openStatus">Checking live hours...</span>
+            <span class="status-pill accent" id="brewHighlight">Brew spotlight</span>
+          </div>
+          <div class="btn-row">
+            <a href="#stalls" class="btn btn-primary"
+              ><i class="fas fa-map-marker-alt"></i> Find Tea Stalls</a
+            >
+            <a href="#maphub" class="btn btn-soft"
+              ><i class="fas fa-route"></i> View Route Links</a
+            >
+          </div>
+        </div>
+        <div class="hero-image glass">
+          <img src="images/hero_img.jpg" alt="Hot masala chai in glass" />
+        </div>
+      </section>
+
+      <section id="menu" class="reveal">
+        <h2 class="section-title">Popular Brews in Trichy</h2>
+        <p class="section-sub">
+          Freshly added menu content with local favorites and tea-time
+          combinations.
+        </p>
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="chai">Chai</button>
+          <button class="filter-btn" data-filter="black">Black Tea</button>
+          <button class="filter-btn" data-filter="coffee">Coffee</button>
+        </div>
+        <div class="grid">
+          <article class="card menu-card" data-category="chai">
+            <img src="images/Masala Chai.jpeg" alt="Masala chai" />
+            <h3>Railway Masala Chai</h3>
+            <span class="pill">Rs. 20 | Strong & Spicy</span>
+            <p class="meta">
+              Cardamom, dry ginger, pepper and milk reduced in traditional kadai
+              style.
+            </p>
+          </article>
+          <article class="card menu-card" data-category="chai">
+            <img src="images/Ginger Tea.avif" alt="Ginger tea" />
+            <h3>Inji Tea</h3>
+            <span class="pill">Rs. 18 | Evening Favorite</span>
+            <p class="meta">
+              Freshly crushed ginger tea, perfect for rainy evenings and
+              post-dinner light tea.
+            </p>
+          </article>
+          <article class="card menu-card" data-category="black">
+            <img src="images/Sulaimani Tea.jpg" alt="Sulaimani tea" />
+            <h3>Sulaimani Lemon Tea</h3>
+            <span class="pill">Rs. 22 | No Milk</span>
+            <p class="meta">
+              Black tea with lemon, mint and mild sweetness. Popular after heavy
+              meals.
+            </p>
+          </article>
+          <article class="card menu-card" data-category="coffee">
+            <img src="images/Filter Kaapi.jpg" alt="Filter coffee" />
+            <h3>Degree Filter Kaapi</h3>
+            <span class="pill">Rs. 28 | South Classic</span>
+            <p class="meta">
+              Dark roast decoction served frothy in steel tumbler-dabara style.
+            </p>
+          </article>
+          <article class="card menu-card" data-category="chai">
+            <img src="images/Ginger Tea.avif" alt="Ginger masala chai" />
+            <h3>Guduchi Ginger Chai</h3>
+            <span class="pill">Rs. 24 | Herbal Boost</span>
+            <p class="meta">
+              Infused with ginger and mild herbs for a clean, warming finish.
+            </p>
+          </article>
+          <article class="card menu-card" data-category="chai">
+            <img src="images/Masala Chai.jpeg" alt="Elaichi tea" />
+            <h3>Elaichi Royal Chai</h3>
+            <span class="pill">Rs. 22 | Aromatic</span>
+            <p class="meta">
+              Cardamom-forward brew with a smooth milk body and light sweetness.
+            </p>
+          </article>
+          <article class="card menu-card" data-category="black">
+            <img src="images/Sulaimani Tea.jpg" alt="Kashmiri kahwa" />
+            <h3>Kashmiri Kahwa</h3>
+            <span class="pill">Rs. 30 | Saffron Notes</span>
+            <p class="meta">
+              Light black tea with saffron, almond, and subtle spice warmth.
+            </p>
+          </article>
+          <article class="card menu-card" data-category="black">
+            <img src="images/lemon_tea.jpg" alt="Lemon ginger tea" />
+            <h3>Lemon Ginger Tea</h3>
+            <span class="pill">Rs. 20 | Zesty</span>
+            <p class="meta">
+              Refreshing black tea with lemon and ginger for an easy sip.
+            </p>
+          </article>
+          <article class="card menu-card" data-category="coffee">
+            <img src="images/Filter Kaapi.jpg" alt="Cold coffee" />
+            <h3>Chilled Filter Coffee</h3>
+            <span class="pill">Rs. 35 | Iced</span>
+            <p class="meta">
+              Classic filter coffee served chilled with a creamy froth top.
+            </p>
+          </article>
+          <article class="card menu-card" data-category="coffee">
+            <img src="images/filter_coffee.jpg" alt="Kumbakonam coffee" />
+            <h3>Kumbakonam Degree Coffee</h3>
+            <span class="pill">Rs. 32 | Bold</span>
+            <p class="meta">
+              Strong decoction blend with chicory for a deep roasted flavor.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="stalls" class="reveal">
+        <h2 class="section-title">Trichy Tea Stall Highlights</h2>
+        <p class="section-sub">
+          Added original location data with specialties, timings, and direct map
+          links.
+        </p>
+        <div class="grid">
+          <article class="card stall-card">
+            <img src="images/tea_stall1.avif" alt="Central stand tea stall" />
+            <h3>Central Stand Steam Tea</h3>
+            <p class="meta">
+              Near Central Bus Stand Main Gate | 5:45 AM - 11:00 PM
+            </p>
+            <span class="pill">Special: Kadai Milk Tea</span>
+            <a
+              class="btn btn-primary map-link"
+              data-name="Central Stand Steam Tea"
+              data-lat="10.7905"
+              data-lng="78.6826"
+              data-routes='[{"label":"Rockfort Temple","lat":10.8342,"lng":78.6931},{"label":"Trichy Junction","lat":10.7902,"lng":78.7047}]'
+              href="https://www.google.com/maps/search/?api=1&query=10.7905,78.6826"
+              target="_blank"
+              rel="noopener"
+              >View Location</a
+            >
+          </article>
+          <article class="card stall-card">
+            <img src="images/tea_stall3.avif" alt="Chatram area tea stall" />
+            <h3>Chatram Evening Chai Spot</h3>
+            <p class="meta">Chatram Bus Stand Area | 6:30 AM - 10:30 PM</p>
+            <span class="pill">Special: Sukku Tea</span>
+            <a
+              class="btn btn-primary map-link"
+              data-name="Chatram Evening Chai Spot"
+              data-lat="10.8296"
+              data-lng="78.6923"
+              data-routes='[{"label":"Kaveri River Banks","lat":10.8482,"lng":78.7042},{"label":"Rockfort Temple","lat":10.8342,"lng":78.6931}]'
+              href="https://www.google.com/maps/search/?api=1&query=10.8296,78.6923"
+              target="_blank"
+              rel="noopener"
+              >View Location</a
+            >
+          </article>
+          <article class="card stall-card">
+            <img src="images/filter_coffee.jpg" alt="Srirangam tea stall" />
+            <h3>Srirangam Temple Tea Corner</h3>
+            <p class="meta">
+              East Chithirai Street, Srirangam | 5:30 AM - 9:45 PM
+            </p>
+            <span class="pill">Special: Tea + Mini Bajji Combo</span>
+            <a
+              class="btn btn-primary map-link"
+              data-name="Srirangam Temple Tea Corner"
+              data-lat="10.8628"
+              data-lng="78.6932"
+              data-routes='[{"label":"Srirangam Temple","lat":10.8628,"lng":78.6932},{"label":"Jambukeswarar Temple","lat":10.8536,"lng":78.7010}]'
+              href="https://www.google.com/maps/search/?api=1&query=10.8628,78.6932"
+              target="_blank"
+              rel="noopener"
+              >View Location</a
+            >
+          </article>
+          <article class="card stall-card">
+            <img src="images/teaboy.jpg" alt="KK Nagar tea cafe" />
+            <h3>KK Nagar Fusion Tea Bar</h3>
+            <p class="meta">KK Nagar Main Road | 7:00 AM - 10:00 PM</p>
+            <span class="pill">Special: Cardamom Green Tea</span>
+            <a
+              class="btn btn-primary map-link"
+              data-name="KK Nagar Fusion Tea Bar"
+              data-lat="10.8031"
+              data-lng="78.6876"
+              data-routes='[{"label":"Central Bus Stand","lat":10.7905,"lng":78.6826},{"label":"Bishop Heber College","lat":10.8075,"lng":78.6868}]'
+              href="https://www.google.com/maps/search/?api=1&query=10.8031,78.6876"
+              target="_blank"
+              rel="noopener"
+              >View Location</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section id="maphub" class="reveal">
+        <h2 class="section-title">Interactive Map Hub</h2>
+        <p class="section-sub">
+          Click any stall's <strong>View Location</strong> to open exact
+          location and sync this map.
+        </p>
+        <div class="map-wrap">
+          <div class="map-panel glass">
+            <iframe
+              id="mapFrame"
+              src="https://www.google.com/maps?q=10.7905,78.6826&z=14&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Trichy tea map"
+            ></iframe>
+            <p class="map-status" id="mapStatus">
+              Current focus: Central Stand Steam Tea
+            </p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px">
+              <button class="btn btn-soft" id="copyCoords">Copy Co-ordinates</button>
+              <button class="btn btn-soft" id="locateMe">Use My Location</button>
+            </div>
+          </div>
+          <div class="map-panel glass">
+            <h3 style="margin-bottom: 12px">Tea Trail Connections</h3>
+            <div class="route-list" id="routeList"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Trichy Tea Corner | Fresh Tea, Local Stories, Live Maps.</p>
+    </footer>
+
+    <script>
+      const links = document.querySelectorAll(".map-link");
+      const mapFrame = document.getElementById("mapFrame");
+      const mapStatus = document.getElementById("mapStatus");
+      const routeList = document.getElementById("routeList");
+      const copyCoordsBtn = document.getElementById("copyCoords");
+      const locateMeBtn = document.getElementById("locateMe");
+      const stallCards = document.querySelectorAll(".stall-card");
+
+      const updateRoutes = (routes, origin, lat, lng) => {
+        routeList.innerHTML = "";
+        routes.forEach((route) => {
+          const item = document.createElement("div");
+          item.className = "route-item";
+          const label = document.createElement("span");
+          label.textContent = `${origin} -> ${route.label}`;
+          const link = document.createElement("a");
+          link.className = "btn btn-soft";
+          link.href = `https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=${route.lat},${route.lng}&travelmode=driving`;
+          link.target = "_blank";
+          link.rel = "noopener";
+          link.textContent = "Open Route";
+          item.appendChild(label);
+          item.appendChild(link);
+          routeList.appendChild(item);
+        });
+      };
+
+      const setActiveCard = (link) => {
+        stallCards.forEach((card) => card.classList.remove("active"));
+        const card = link.closest(".stall-card");
+        if (card) card.classList.add("active");
+      };
+
+      const updateMap = (link) => {
+        const name = link.dataset.name;
+        const lat = link.dataset.lat;
+        const lng = link.dataset.lng;
+        const routes = JSON.parse(link.dataset.routes || "[]");
+        mapFrame.src = `https://www.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
+        mapStatus.textContent = `Current focus: ${name}`;
+        updateRoutes(routes, name, lat, lng);
+        setActiveCard(link);
+      };
+
+      if (links.length) {
+        links.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+            updateMap(link);
+            window.open(link.href, "_blank", "noopener");
+          });
+        });
+        updateMap(links[0]);
+      }
+
+      if (copyCoordsBtn) {
+        copyCoordsBtn.addEventListener("click", () => {
+          const match = mapFrame.src.match(/q=([\\d.]+),([\\d.]+)/);
+          if (!match) return;
+          const coords = `${match[1]}, ${match[2]}`;
+          navigator.clipboard.writeText(coords);
+        });
+      }
+
+      if (locateMeBtn) {
+        locateMeBtn.addEventListener("click", () => {
+          if (!navigator.geolocation) return;
+          navigator.geolocation.getCurrentPosition((pos) => {
+            const { latitude, longitude } = pos.coords;
+            const currentLink =
+              document.querySelector(".stall-card.active .map-link") || links[0];
+            const destLat = currentLink.dataset.lat;
+            const destLng = currentLink.dataset.lng;
+            window.open(
+              `https://www.google.com/maps/dir/?api=1&origin=${latitude},${longitude}&destination=${destLat},${destLng}&travelmode=driving`,
+              "_blank",
+              "noopener",
+            );
+          });
+        });
+      }
+
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const menuCards = document.querySelectorAll(".menu-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.filter;
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+          menuCards.forEach((card) => {
+            const category = card.dataset.category;
+            card.classList.toggle("hidden", filter !== "all" && category !== filter);
+          });
+        });
+      });
+
+      const openStatus = document.getElementById("openStatus");
+      const brewHighlight = document.getElementById("brewHighlight");
+      const brews = [
+        "Brew spotlight: Sulaimani Lemon Tea",
+        "Brew spotlight: Kadai Masala Chai",
+        "Brew spotlight: Degree Filter Kaapi",
+      ];
+      let brewIndex = 0;
+
+      const updateStatus = () => {
+        const hour = new Date().getHours();
+        const isOpen = hour >= 6 && hour <= 23;
+        if (openStatus) {
+          openStatus.textContent = isOpen ? "Open now: 6:00 AM - 11:00 PM" : "Closed now";
+        }
+      };
+
+      if (brewHighlight) {
+        brewHighlight.textContent = brews[0];
+        setInterval(() => {
+          brewIndex = (brewIndex + 1) % brews.length;
+          brewHighlight.textContent = brews[brewIndex];
+        }, 3500);
+      }
+
+      updateStatus();
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
